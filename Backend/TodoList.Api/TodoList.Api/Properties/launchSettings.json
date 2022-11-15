@@ -13,7 +13,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       //"launchUrl": "swagger",
-      "launchUrl": "api/todoitems",
+      "launchUrl": "swagger/index.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
