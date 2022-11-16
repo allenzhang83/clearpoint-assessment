@@ -6,7 +6,7 @@ The backend is a simple todo list API application. The APIs support standard LIS
 
 ## Run the Application
 
-Install .net 6 if not already installed.
+Install .net 6 if not already installed.<br/>
 Start debugging normally in Visual Studio. The landing page is the swagger UI.
 <br/><br/>
 
