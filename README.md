@@ -1,30 +1,16 @@
-# Developer Assessment
+# Todo List APIs
 
-This repository contains code used in the interview process for developers joining the Microsoft Engineering Practice at ClearPoint.
+The backend is a simple todo list API application. The APIs support standard LIST, GET, CREATE and UPDATE operations to todo items.
 
-There are two parts to this solution and depending on the type of role you are applying for you will be asked to contribute to one or both areas.
-The application is a simple to-do list that allows a user to create items in a list and mark them as complete.
-It is a React-based front end application that uses a Microsoft Web API at the backend to facilitate using and persisting items in this to-do list.
 <br/><br/>
 
-## FOR THOSE APPLYING FOR A BACK-END DEVELOPER ROLE
+## Run the Application
 
-For this exercise you are asked to refactor the back end code in this solution. This code is in the **Backend** folder.
-You are free to make changes as and where you see fit. Think about how you might structure the solution, add appropriate tests using a framework of your choice, and leave the solution in a more maintainable and more easily understood state than it was originally.
+Start debugging normally in Visual Studio. The landing page is the swagger UI.
 <br/><br/>
 
-## FOR THOSE APPLYING FOR A FULL-STACK DEVELOPER ROLE
+## Assumptions
 
-For this exercise you are asked to complete the requirements for the *back end developer role above as well as* enhance the UI functionality in the **Frontend** folder.
-The front end functionality requires the following to be added:
-
-1. The ability to surface any errors from the backend API in the UI
-2. The ability to mark an item in the to-do list as complete
-3. Add unit tests to cover the new functionality using a framework of your choice
-
-<br/>
-For both role types, remember that *maintainability and clarity* is key in your solution. 
-You are welcome to use comments in the code to outline any assumptions you might make and/or outline your thinking at various points.
-Once completed you can either push the completed solution to your own repo and send us the link.
-<br/><br/>
-We look forward to seeing your submission and have fun!
+1. It is the correct behaviour that only the get all API takes "IsCompleted" into account. All other APIs work with both completed and active todo items.
+2. It is OK to modify the API signature (without versioning). The PUT method had the item id as the parameter, this is unnecessary as the id is available in the update todo item payload.
+3. It is expected that the frontend will pass the id to the API when creating a todo item. This is a bit strange as normally the backend creates the id (normally also the db table primary key).
