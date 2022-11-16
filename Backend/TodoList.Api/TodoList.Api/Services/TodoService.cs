@@ -34,12 +34,12 @@ namespace TodoList.Api.Services
         {
             if (string.IsNullOrEmpty(newTodoItem?.Description))
             {
-                return (false, "Description is required");
+                return (false, Constants.DesctiptionRequiredMessage);
             }
 
             if (_todoRepository.TodoItemDescriptionExists(newTodoItem.Description))
             {
-                return (false, "Description already exists");
+                return (false, Constants.DesctiptionExistsMessage);
             }
 
             return (true, string.Empty);
