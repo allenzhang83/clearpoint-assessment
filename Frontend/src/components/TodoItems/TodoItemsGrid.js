@@ -2,7 +2,6 @@ import '../../App.css'
 import { Button, Table } from 'react-bootstrap'
 import React, { useState, useEffect } from 'react'
 import { getTodoItems, updateTodoItem } from '../../services/TodoItemService'
-import { TodoItem } from '../../models/TodoItem'
 
 const TodoItemsGrid = (props) => {    
     const [items, setItems] = useState([])

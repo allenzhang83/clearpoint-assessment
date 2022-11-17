@@ -1,5 +1,4 @@
 import axios from './axios';
-import { TodoItem } from '../models/TodoItem';
 
 export const getTodoItems = async () => {
     const response = await axios.get(`/TodoItems`);
