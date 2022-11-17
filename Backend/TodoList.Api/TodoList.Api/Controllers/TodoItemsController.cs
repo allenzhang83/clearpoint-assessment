@@ -58,13 +58,20 @@ namespace TodoList.Api.Controllers
 
         // POST: api/TodoItems 
         [HttpPost]
-        public async Task<IActionResult> PostTodoItem(TodoItem todoItem)
+        public async Task<IActionResult> PostTodoItem(NewTodoItem newTodoItem)
         {
-            var canCreateTodoItem = _todoService.CanCreateTodoItem(todoItem);
+            var canCreateTodoItem = _todoService.CanCreateTodoItem(newTodoItem);
             if (!canCreateTodoItem.Item1)
             {
                 return BadRequest(canCreateTodoItem.Item2);
             }
+
+            var todoItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Description = newTodoItem.Description,
+                IsCompleted = false
+            };
 
             await _todoService.CreateTodoItem(todoItem);
 

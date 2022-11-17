@@ -30,7 +30,7 @@ namespace TodoList.Api.Services
             return await _todoRepository.UpdateTodoItem(updateTodoItem);
         }
 
-        public (bool, string) CanCreateTodoItem(TodoItem newTodoItem)
+        public (bool, string) CanCreateTodoItem(NewTodoItem newTodoItem)
         {
             if (string.IsNullOrEmpty(newTodoItem?.Description))
             {

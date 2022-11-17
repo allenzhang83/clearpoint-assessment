@@ -161,23 +161,22 @@ namespace TodoList.Api.UnitTests
         {
             // arrange
             RefreshData();
-            var newItem = new TodoItem
+            var newItem = new NewTodoItem
             {
-                Id = new Guid("77f611ad-628a-4d1d-b619-e2964227c12c"),
-                Description = "Item05",
-                IsCompleted = false
+                Description = "Item05"
             };
 
             // act
             var result = await _todoItemsController.PostTodoItem(newItem);
-            var getResult = await _todoItemsController.GetTodoItem(newItem.Id) as OkObjectResult;
+            var getResult = await _todoItemsController.GetTodoItems() as OkObjectResult;
 
             // assert 
             result.Should().BeOfType<CreatedAtActionResult>();
-            var todoItem = getResult.Value as TodoItem;
-            todoItem.Description.Should().Be(newItem.Description);
-            todoItem.Id.Should().Be(newItem.Id);
-            todoItem.IsCompleted.Should().Be(newItem.IsCompleted);
+            var todoItems = getResult.Value as List<TodoItem>;
+            var addedItem = todoItems.FirstOrDefault(i => i.Description == newItem.Description);
+            addedItem.Should().NotBeNull();
+            addedItem.Description.Should().Be(newItem.Description);
+            addedItem.IsCompleted.Should().Be(newItem.IsCompleted);
         }
 
         [Theory]
@@ -187,11 +186,9 @@ namespace TodoList.Api.UnitTests
         {
             // arrange
             RefreshData();
-            var newItem = new TodoItem
+            var newItem = new NewTodoItem
             {
-                Id = new Guid("77f611ad-628a-4d1d-b619-e2964227c12c"),
-                Description = description,
-                IsCompleted = false
+                Description = description
             };
 
             // act
@@ -208,11 +205,9 @@ namespace TodoList.Api.UnitTests
         {
             // arrange
             RefreshData();
-            var newItem = new TodoItem
+            var newItem = new NewTodoItem
             {
-                Id = new Guid("77f611ad-628a-4d1d-b619-e2964227c12c"),
-                Description = "Item01",
-                IsCompleted = false
+                Description = "Item01"
             };
 
             // act
